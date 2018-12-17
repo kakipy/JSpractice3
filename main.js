@@ -12,7 +12,6 @@
         if(isStarted === true){
             return;
         }
-
         isStarted = true;
 
         startTime = Date.now();
@@ -26,22 +25,22 @@
         if(isStarted === false){
             return;
         }
-
         isStarted = false ;
 
         let elaspedTime;
         let diff;
         elaspedTime = (Date.now() - startTime)/1000;
+        // elaspedTime = 7.0001;
+
         result.textContent=elaspedTime.toFixed(3);
         this.className = "pushed"
         start.className ="";
         result.className = "";
-
-        
-        diff = elaspedTime - 5.0;
-        if(Math.abs(diff) < 1.0){
+        diff = elaspedTime - 7.000;
+        if( diff.toFixed(3) === "0.000"){
             result.className = "perfect";
-            console.log('test');
+        }else if(Math.abs(diff) < 1.0){
+            result.className = "good";
         }
     });
 
